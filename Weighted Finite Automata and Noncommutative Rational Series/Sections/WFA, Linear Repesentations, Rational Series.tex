@@ -6,7 +6,7 @@
 \begin{definition}
     Let $K$ be a semiring and $A$ an alphabet.
     \begin{enumerate}[(1)]
-        \item A \emph{weighted (finite) automaton} (WFA) with weights in $K$ 
+        \item A \emph{weighted (finite) automaton}\index{weighted finite automaton} (WFA) with weights in $K$ 
         is a tuple $(Q, I, E, T)$ consisting of a finite set $Q$ of \emph{states},
         and maps $I \colon Q \rightarrow K$ (\emph{initial weights}), 
         $E \colon Q \times A \times Q \rightarrow K$ (\emph{transition function}),
@@ -34,9 +34,9 @@
 \begin{definition} Terminology:
     \begin{enumerate}
         \item A state $q$ is \emph{initial} if $I(q) \neq 0$ and 
-        \emph{terminal} if $T(q) \neq 0$.
+        \emph{terminal}  if $T(q) \neq 0$.
         \item A \emph{successful run/accepting run} is a run from 
-        an initial state to a terminal state. 
+        an initial state to a terminal state.
     \end{enumerate}
 \end{definition}
 
@@ -45,13 +45,15 @@
 \begin{definition}
     Let $K$ be a semiring and $A$ an alphabet.
     \begin{enumerate}[(1)]
-        \item A series $S \in K \left<\left<A\right>\right>$ is \emph{($K$-)recognizable}
+        \item A series $S \in K \left<\left<A\right>\right>$ is \emph{($K$-)recognizable}\index{recognizable series}
         if there exist $n \ge 0$, $\lambda \in K^{1 \times b}$, $\gamma \in K^{n \times 1}$,
         and a monoid morphism $\mu \colon A^* \to K^{d \times d}$ such that for every 
         $w \in A^*$ we have
         \[
             (S, w) = \lambda \mu(w) \gamma.
         \]
+        \item The triple $(\lambda, \mu, \gamma)$ is a \emph{linear representation}\index{linear representation}
+        of $S$ with \emph{dimension} $n$.
     \end{enumerate}
 \end{definition}
 
@@ -59,3 +61,41 @@
     A series $S \in K \left<\left<A\right>\right>$ is recognizable if and only 
     if there exists a WFA $\mathcal{A}$ such that $S = [[\mathcal{A}]]$.
 \end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection{Model-theoretic Characterization}
+
+\begin{lemma}
+    Let $K$ be a semiring and $A$ an alphabet.
+    \begin{enumerate}[(1)]
+        \item For $x \in A^*$, the map $S \mapsto x^{-1}X$ is a $K$-module 
+        morphism.
+        \item For every $x,y \in A^*$ and for every $S \in K \left<\left<A\right>\right>$
+        we have $(xy)^{-1}S = y^{-1}(x^{-1}S)$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Left as an exercise.
+\end{proof}
+
+\begin{definition}
+    A submodule $M \subseteq K \left<\left<A\right>\right>$ is \emph{stable} 
+    if for every $S \in M$ and every $x \in A^*$ we have $x^{-1}S \subseteq M$ (equivalently
+    for every $a \in A$ we have $a^{-1}M \subseteq M$).
+\end{definition}
+
+
+
+\begin{theorem}
+    A series $S \in K \left<\left<A\right>\right>$ is recognizable if and only 
+    if there exists a stable finitely generated left submodule $M \subseteq 
+    K \left<\left<A\right>\right>$ such that $S \in M$.
+\end{theorem}
+\datum{2024-10-08}
+\begin{proof}
+    
+\end{proof}
