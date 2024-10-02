@@ -1,8 +1,9 @@
-\section{WFA, Linear Representations, Rational Series}
+\section{Weighted finite automata, linear representations, rational series}
 
-\subsection{Weighted Finite Automata}
+\subsection{Weighted finite automata}
 
 \datum{2024-10-01}
+
 \begin{definition}
     Let $K$ be a semiring and $A$ an alphabet.
     \begin{enumerate}[(1)]
@@ -41,7 +42,7 @@
 \end{definition}
 
 \subsection{Linear representation, recognizable series}
-
+We wish to represent the data in a weighted finite automaton using adjacency matrices.
 \begin{definition}
     Let $K$ be a semiring and $A$ an alphabet.
     \begin{enumerate}[(1)]
@@ -63,10 +64,48 @@
 \end{proposition}
 
 \begin{proof}
-    
+    Suppose $S = [[\mathcal{A}]]$ with $\mathcal{A} = (Q, I, E, T)$. Without 
+    loss of generality let $Q = \set{1, \dots, n}$. Let 
+    \[
+        \lambda := \begin{bmatrix}
+            I(1) & \dots & I(n)
+        \end{bmatrix}, \quad \gamma := \begin{bmatrix}
+            T(1) & \vdots & T(n)
+        \end{bmatrix}^\top,
+    \]
+    and for every $a \in A$ let 
+    \[
+        \mu(a) := \begin{bmatrix}
+            E(1, a, 1) & \dots & E(1, a, n) \\
+            \vdots & & \vdots \\
+            E(1, a, n) & \dots & E(n, a, n)
+        \end{bmatrix}.
+    \]
+    This extends to a morphism
+    \begin{align*}
+        \mu \colon A^* &\to K^{d \times d}, \\
+        \mu(a_1 \cdots a_n) &= \mu(a_1)\mu(a_2) \cdots \mu(a_n).
+    \end{align*}
+    Then, for $p, q \in Q$, $w = a_1 \cdots a_n$, we have
+    \begin{align*}
+        u(w)_{p,q} &= [
+            \mu(a_1) \cdots \mu(a_n)
+        ]_{p,q} \\
+        &= \sum_{p_1,\dots,p_{m-1} = 1}^{n} \mu(a_1)_{p,p_1}\mu(a_2)_{p_1,p_2} \cdots \mu(a_m)_{p_{m-1},q}
+    \end{align*}
+    and
+    \begin{align*}
+        \lambda \mu(w) \gamma &= \sum_{p, p_1,\dots,p_{m-1}, q = 1}^{n} \lambda_p\mu(a_1)_{p,p_1}\mu(a_2)_{p_1,p_2} \cdots \mu(a_m)_{p_{m-1},q} \gamma_q \\
+        &= \sum_{p, p_1,\dots,p_{m-1}, q = 1}^{n} I(p) E(p,a_1,p_1)E(p_1,a_2,p_2) \cdots E(p_{m-1},a_m,q)T(q) \\
+        &= ([[\mathcal{A}]], w).
+    \end{align*}
+    Conversly, let $(\lambda, \mu, \gamma)$ be a linear representation recognizing $S$. 
+    Let $Q:=\set{1,\dots,n}$, $I(p) := \lambda_p$, $T(q) := \gamma_q$, 
+    $E(p,a,q) := \mu(a)_pq$. The computation above shows that $S$ is the 
+    behaviour of $(Q, I, E, T)$.
 \end{proof}
 
-\subsection{Model-theoretic Characterization}
+\subsection{Model-theoretic characterization}
 
 \begin{lemma}
     Let $K$ be a semiring and $A$ an alphabet.
@@ -88,14 +127,12 @@
     for every $a \in A$ we have $a^{-1}M \subseteq M$).
 \end{definition}
 
-
-
 \begin{theorem}
     A series $S \in K \left<\left<A\right>\right>$ is recognizable if and only 
-    if there exists a stable finitely generated left submodule $M \subseteq 
+    if there exists a stable finitely generated left $K$-submodule $M \subseteq 
     K \left<\left<A\right>\right>$ such that $S \in M$.
 \end{theorem}
 \datum{2024-10-08}
 \begin{proof}
-    
+    Next lecture.
 \end{proof}
