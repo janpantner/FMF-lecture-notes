@@ -1,0 +1,40 @@
+\section{Definitions}
+
+\subsection{Expansion}
+
+\datum{2024-10-1}
+
+\begin{definition}
+    Let $P = (V ,E)$ be a finite graph.
+    \begin{enumerate}[(1)]
+        \item For any disjoint subsets of vertives $V_1,V_2 \subseteq V$, 
+        we denote by $\EE(V_1, V_2)$ the set of edges of $\Gamma$ with 
+        one extremity in $V_1$ and the other in $V_2$. 
+        We denote $\EE(V_1) := \EE(V_1, V \setminus V_1)$.
+        \item The \emph{Cheeger constant}\index{Cheeger constant} or \emph{expansion constant}\index{expansion constant} 
+        of $\Gamma$ is
+        \[
+            h(\Gamma) := \min\setb{\frac{\abs{\EE(W)}}{\abs{W}}}
+            {\emptyset \neq W \subseteq V \land \abs{W} \le \frac{1}{2}\abs{V}}
+        \]
+        with the convention that $h(\Gamma) = +\infty$ if $\Gamma$ has 
+        at most one vertex.
+    \end{enumerate}
+\end{definition}
+
+The larger $h(P)$ is, the more difficult it is to disconnect a large szbset of $V$ from 
+the rest of the graph. This will be our way of measuring ``high connectivity''.
+
+\begin{lemma}
+    Let $\Gamma$ be a finite graph with at least two vertices (so that $h(\Gamma) < \infty$).
+    We have $h(\Gamma) > 0$ if and only if $\Gamma$ is connected.
+\end{lemma}
+
+\begin{proof}
+    The condition $h(\Gamma) = 0$ means that there exists some nonempty $W \subseteq V$, 
+    $\abs{W} \le \frac{1}{2}\abs{V}$, such that $\abs{\EE}(W) = 0$. Since $W \neq V$,
+    there is no path between $W$ and $V \setminus W$, so $\Gamma$ is disconnected.
+    
+    Conversely, if $\Gamma$ is disjoint, there is some componenet, say $W$, of size 
+    at most $\frac{1}{2} \abs{V}$. Hence, $\EE(W) = \emptyset$ and $h(\Gamma) = 0$.
+\end{proof}
