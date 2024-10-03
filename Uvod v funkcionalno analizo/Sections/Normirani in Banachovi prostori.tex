@@ -1,0 +1,101 @@
+\section{Normirani in Banachovi prostori}
+\subsection{Definicije in primeri}
+
+\datum{2024-10-2}
+
+\begin{definicija}
+    Naj bo $X$ vektorski prostor nad poljem $\F \in \set{\R, \C}$. Preslikava 
+    $\norm{\cdot} \colon X \to \R$ je \emph{norma}\index{norma}, če velja
+    \begin{enumerate}[(a)]
+        \item $\forall x \in X.~\norm{x} \ge 0$,
+        \item $\norm{x} = 0 \Rightarrow x = 0$,
+        \item $\forall \lambda \in \F.~\forall x \in X.~\norm{\lambda x} = \abs{\lambda} \norm{x}$,
+        \item $\forall x, y \in X.~\norm{x+y} \le \norm{x} + \norm{y}$ (trikotniška neenakost).
+    \end{enumerate}
+\end{definicija}
+
+\begin{definicija}
+    Če $p\colon X \to \R$ zadošča lasnostim (a), (c) in (d) iz zgornje definicije, 
+    je $p$ \emph{polnorma}\index{polnorma} na $X$.
+\end{definicija}
+
+\begin{definicija}
+    Prostor $X$ skupaj z normo $\norm{\cdot}$ je \emph{normiran prostor}\index{normiran prostor}.
+\end{definicija}
+
+\begin{lema}
+    V normiranem prostoru velja
+    \[
+        \abs{\norm{x} - \norm{y}} \le \norm{x-y}.
+    \]
+\end{lema}
+
+\begin{proof}
+    Iz
+    \[
+        \norm{x} = \norm{x-y+y} \le \norm{x-y} + \norm{y}
+    \]
+    sledi
+    \[
+        \norm{x} - \norm{y} \le \norm{x-y}.
+    \]
+    Podobno dobimo $\norm{y} - \norm{x} \le \norm{x-y}$.
+\end{proof}
+
+Če pišemo $f(x) = \norm{x}$, sledi, da je $f$ zvezna in Lipshitzeva 
+s konstanto $1$.
+
+Naj bo $X$ normiran prostor. Vpeljemo metriko
+\begin{align*}
+    d &\colon X \to \R, \\
+    d(x,y) &= \norm{x-y}.
+\end{align*}
+
+Omenimo še dve lastnosti metrike $d$:
+\begin{itemize}
+    \item $d$ je translacijsko invariantna:
+    \[
+        d(x+y,y+a) = \norm{(x+a) - (y+a)} = \norm{x-y} = d(x,y),
+    \]
+    \item $d$ je pozitivno homogena:
+    \[
+        d(\lambda x, \lambda y) = \norm{\lambda x - \lambda y} = 
+        \abs{\lambda} \norm{x-y} = \abs{\lambda}d(x,y).
+    \]
+\end{itemize}
+
+\begin{definicija}
+    Normiran prostor $X$ je \emph{Banachov}\index{Banachov prostor}, če je $(X, d)$ poln.
+\end{definicija}
+
+\begin{trditev}
+    Seštevanje vektorjev in množenje vektorjev s skalarjem sta zvezni operaciji 
+    v normiranem prostoru.
+\end{trditev}
+Domeni seštevanja in množenja sta zaporedoma $X \times X$ in $\F \times X$. Tu mislimo 
+zveznost v smislu produktne metrike/topologije.
+
+\begin{proof}
+    Naj bo $\varepsilon > 0$. Če velja $\norm{x-x'} < \varepsilon/2$ in 
+    $\norm{y-y'} < \varepsilon/2$, potem
+    \[
+        \norm{(x'+y') - (x+y)} = \norm{(x'-x) - (y'+y)} \le \norm{x'-x} 
+        + \norm{y'-y} < \varepsilon.
+    \]
+    Naj bodo $\varepsilon > 0$, $x \in X$ in $\lambda \in \F$. Velja
+    \begin{align*}
+        \norm{\lambda' x' - \lambda x} &= \norm{\lambda'x' -\lambda x' + \lambda x' - \lambda x} \\
+        &\le \abs{\lambda'-\lambda} \norm{x'} + \abs{\lambda} \norm{x'-x}.
+    \end{align*}
+    Naj bo\footnote{V imenovalcu dodamo $+1$ zato, da ne potrebujemo ločeno obravnavati primera $\lambda = 0$.} 
+    $\norm{x'-x} \le \frac{\epsilon}{2} \cdot \frac{1}{\abs{\lambda} + 1}$. Tedaj velja
+    \[
+        \norm{x'} = \norm{x' -x +x} \le \norm{x'-x}+ \norm{x} \le \frac{\epsilon}{2} \cdot \frac{1}{\abs{\lambda} + 1} + \norm{x}.
+    \]
+    Če velja še
+    \[
+        \norm{\lambda' - \lambda} < \frac{\epsilon}{2} 
+        \left(\frac{\epsilon}{2} \cdot \frac{1}{\abs{\lambda} + 1} + \norm{x}\right)^{-1},
+    \]
+    dobimo $\norm{(x'+y') - (x+y)} < \epsilon$.
+\end{proof}
