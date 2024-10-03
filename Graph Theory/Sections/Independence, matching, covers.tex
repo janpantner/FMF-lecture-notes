@@ -4,25 +4,163 @@
 
 \datum{2024-10-02}
 
+Let $G = (V, E)$ be a graph.
+
 \begin{definition}
     A set $S \subseteq V$ is an \emph{independent set}\index{independent set} if $G[S]$ contains no edges.
-    The \emph{independence number $\alpha(G)$} is the maximum possible cardinality of an independent set.
+    The \emph{independence number $\alpha(G)$}\index{independence number} is the maximum possible cardinality of an independent set.
 \end{definition}
 
 \begin{definition}
-
+    A set $T \subseteq V$ is a \emph{vertex cover}\index{vertex cover} if 
+    \[
+        \forall e \in E.~T\cap e \neq \emptyset.
+    \]
+    The \emph{vertex cover number} $\beta(G)$\index{vertex cover number} is the minimum 
+    possible cardinality of a vertex cover.
 \end{definition}
 
 \begin{definition}
-
+    A set $M \subseteq E$ is a \emph{matching}\index{matching} if
+    \[
+        \forall e,f \in M.~e \neq f \Rightarrow e \cap f = \emptyset.
+    \]
+    The \emph{matching number} $\alpha'(G)$\index{matching number} is 
+    the maximum possible cardinality of a matching.
 \end{definition}
 
 \begin{definition}
-
+    A set $C \subseteq E$ is an edge cover if every vertex of $G$ is covered 
+    by at least one edge from $C$. If $\delta(G) \ge 1$, we define the 
+    \emph{edge cover number} $\beta'(G)$\index{edge cover number} as 
+    the minimum possible cardinality of an edge cover.
 \end{definition}
+
+\begin{lemma}
+    Let $G$ be a graph. The following holds:
+    \begin{itemize}
+        \item $\alpha(G) + \beta(G) = n(G)$.
+        \item $\alpha'(G) \le \beta(G)$.
+        \item $\alpha(G) \le \beta'(G)$.
+        \item If $\delta(G) \ge 1$, then $\alpha'(G) \le \frac{n}{2} \le \beta(G)$.
+    \end{itemize}
+\end{lemma}
+
+\begin{proof}
+    TO DO
+\end{proof}
 
 \begin{theorem}[Gallai]\index{Gallai's theorem}
     If $\delta(G) \ge 1$, then $\alpha'(G) + \beta'(G) = n(G)$.
 \end{theorem}
 
+\begin{proof}
+    TO DO
+\end{proof}
+
+\begin{definition}
+    Let $M$ be a matching. A path is an \emph{$M$-alternating path}\index{$M$-alternating path}
+    if the edges along the path alternate between $M$ and $\overline{M} = E \setminus M$.
+\end{definition}
+
+\begin{definition}
+    An $M$-alternating path is called an \emph{$M$-augmenting path}\index{$M$-augmenting path}
+    if both ends of the path are uncovered by $M$.
+\end{definition}
+
 \datum{2024-10-03}
+
+\begin{proposition}
+    Let $G$ be a graph and $M$ a matching. If there exists an $M$-augmenting path 
+    $P$, then $M$ is not a maximum matching.
+\end{proposition}
+
+\begin{proof}
+    We can construct a bigger matching $M' = M \triangle E(P)$, where 
+    $\triangle$ is the disjunctive union.
+\end{proof}
+
+\begin{theorem}[König]
+    Let $G$ be a bipartite graph. Then the following holds:
+    \begin{itemize}[(a)]
+        \item $\alpha'(G) = \beta(G)$.
+        \item If $M$ is a matching witn no $M$-augmenting path, then $M$ is a 
+        maximum matching.
+    \end{itemize}    
+\end{theorem}
+
+\begin{proof}
+    TO DO
+\end{proof}
+
+\begin{remark}
+    There also exist graphs with $\alpha'(G) = \beta(G)$ that are not bipartite.
+\end{remark}
+
+\begin{corollary}
+    If $G$ is a bipartite graph, then $\alpha(G) = \beta'(G)$
+\end{corollary}
+
+\begin{proof}
+    We have
+    \[
+        \alpha(G) = n(G) - \beta(G) = n(G) - \alpha'(G) = \beta'(G),
+    \]
+    where the latter two equalities are due to König's and Gallai's 
+    theorem respectively.
+\end{proof}
+
+\begin{definition}
+    Let $G$ be a bipartite graph with partite classes $A$ and $B$. 
+    \emph{Hall's condition}\index{Hall's condition} (HC) holds for $A$,
+    if 
+    \[
+        \forall S \subseteq A.~\abs{S} \le \abs{N(S)},
+    \]
+    where $N(S)$ is the neighbourhood of $S$.
+\end{definition}
+
+\begin{theorem}[Hall]\index{Hall's theorem}
+    Let $G = (A \cup B, E)$ be a bipartite graph. A matching that covers $A$ 
+    exists if and only if Hall's condition holds for $A$.
+\end{theorem}
+
+\begin{proof}
+    TO DO
+\end{proof}
+
+\begin{definition}
+    A matching $M$ is a \emph{perfect matching}\index{perfect matching} if 
+    it covers all vertices.
+\end{definition}
+
+\begin{corollary}
+    Let $G$ be a bipartite graph. There exists a perfect matching of $G$ 
+    if and only if $\abs{A} = \abs{B}$ and $A$ satisfies Hall's condition.
+\end{corollary}
+
+\begin{definition}
+    Let $S \subseteq A$. The \emph{deficiency}\index{deficiency} of $S$ is 
+    defined as $\defi(S) = \abs{S} - \abs{N(S)}$.
+\end{definition}
+
+\begin{theorem}
+    Let $G = (A \cup B, E)$ be a bipartite graph and $M$ a matching. Then at 
+    most
+    \[
+        \abs{A} - \max_{S \subseteq A}(\defi(S))
+    \]
+    vertices of $A$ are covered.
+\end{theorem}
+
+\begin{proof}
+    Left as an exercise.
+\end{proof}
+
+\begin{theorem}
+    If $G$ is a regular bipartite graph, then $G$ has a perfect matching.
+\end{theorem}
+
+\begin{proof}
+    TO DO
+\end{proof}
