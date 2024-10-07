@@ -6,7 +6,7 @@
 \begin{definicija}
     Naj bo $X$ vektorski prostor nad poljem $\F \in \set{\R, \C}$. Preslikava 
     $\norm{\cdot} \colon X \to \R$ je \emph{norma}\index{norma}, če velja
-    \begin{enumerate}[(a)]
+    \begin{enumerate}[(i)]
         \item $\forall x \in X.~\norm{x} \ge 0$,
         \item $\norm{x} = 0 \Rightarrow x = 0$,
         \item $\forall \lambda \in \F.~\forall x \in X.~\norm{\lambda x} = \abs{\lambda} \norm{x}$,
@@ -99,3 +99,348 @@ zveznost v smislu produktne metrike/topologije.
     \]
     dobimo $\norm{(x'+y') - (x+y)} < \epsilon$.
 \end{proof}
+
+\datum{2024-10-7}
+
+\begin{primer}
+    Poglejmo $(\F^n, \norm{\cdot}_p)$, kjer je $1 \le p \le \infty$.
+
+    Za $1 \le p < \infty$ in $x = (x_1, \dots, x_n)$ definiramo
+    \begin{align*}
+        \norm{x}_p &= \left(\sum_{k=1}^n \abs{x_k}\right)^{1/p}, \\
+        \norm{x}_\infty &= \max_{1 \le k \le n} \abs{x_k}.
+    \end{align*}
+    % Narisali smo kako izgledajo krogle v n=2. B_inty je kvadrat
+    % B_1 krog, B_p gre proti kvadratu, ko gre p proti infty
+    Velja, da so $(\F^n, \norm{\cdot}_p)$ Banachovi prostori
+    (dokazali smo na vajah).
+    
+    Vse odprte krogle $B(x, r)$ in zaprte krogle so vedno 
+    konveksne (DN, v primeru $0 < p < 1$ to ni res,
+    zato $\norm{\cdot}$ ni norma na $F^n$ za $0 < p < 1$).
+    %nariši slikice v Desmosu
+\end{primer}
+
+\begin{definicija}
+    Množica $A$ nad $\F$ je \emph{algebra},\index{algebra} če velja
+    \begin{enumerate}[(i)]
+        \item $(A, +, \cdot)$ je kolobar.
+        \item $A$ je vektorski prostor nad $\F$.
+        \item $\forall x,y\in A.~\forall \lambda \in \F.~\lambda(xy) = (\lambda x)y = x(\lambda y)$.
+    \end{enumerate}
+    Če ima $A$ enoto, je $A$ \emph{unitalna}\emph{unitalna algebra}. Če je 
+    $A$ tudi normiran prostor, potem je normirana algebra,\index{normirana algebra}
+    če velja \emph{submultiplikativnost}\index{submultiplikativnost}
+    \[
+        \norm{x y} \le \norm{x} \cdot \norm{y}.
+    \]
+    Če ima normirana algebra enoto $e$, potem zahtevamo, da 
+    je $\norm{e} = 1$.
+\end{definicija}
+
+\begin{trditev}
+    V normirani algebri je množenje zvezna operacija.
+\end{trditev}
+
+\begin{proof}
+    Podobno kot pri zveznosti množenja s skalarjem.
+\end{proof}
+
+\begin{primer}
+    Naj bo $X$ Hausdorffov topološki prostor in
+    \[
+        C_b(X) =\set{\text{zvezne omejene funkcije iz $X$ v $\F$}}.
+    \]
+    Operacije definiramo po točkah:
+    \begin{align*}
+        (f+g)(x) &= f(x) + g(x), \\
+        (\lambda f)(x) &= \lambda f(x), \\
+        (f\cdot g)(x) &= f(x) g(x).
+    \end{align*}
+    Sledi, da je $C_b(X)$ algebra. Dokažimo, da 
+    je normirana algebra in hkrati Banachov prostor, 
+    torej \emph{Banachova algebra}\index{Banachova algebra} 
+    glede na normo
+    \[
+        \norm{f}_\infty = \sup_{x \in X} \abs{f(x)}.
+    \]
+    Dokažimo, da je to res norma. 
+    Ker so funkcije omejene je supremum dobro definiran, 
+    torej drži (i). Očitno držita tudi (ii) in (iii).
+
+    Naj bo $x \in X$. Velja
+    \begin{align*}
+        \abs{f(x) + g(x)} &\le \abs{f(x)} + \abs{(g(x))} \\
+        &\le \norm{f}_\infty + \norm{g}_\infty.
+    \end{align*}
+    Sledi
+    \[
+        \norm{f + g}_\infty \le \norm{f}_\infty + \norm{g}_\infty.
+    \]
+    Torej je $\norm{\cdot}_\infty$ norma. Dokažimo, da je prostor Banachov.
+    Naj bo $(f_n)_{n \in \N}$ Cauchyjevo zaporedje v $C_b(X)$. Tedaj velja
+    \[
+        \forall \varepsilon > 0.~\exists N_\varepsilon.~\forall n,m \ge n_\varepsilon.~
+        \norm{f_n - f_m}_\infty < \varepsilon.
+    \]
+    Torej za $n,m \ge n_\varepsilon$ velja
+    \[
+        \forall x \in X. \abs{f_n(x) - f_m(x)}_\infty < \varepsilon.
+    \]
+    Dobimo, da je $(f_n(x))_{n\in\N}$ Cauchyjevo v $\F$.
+    Naj bo
+    \[
+        f(x) := \lim_{n\to \infty} f_n(x),
+    \]
+    torej $f \colon X \to \F$. To je edini kandidat za limito. Preveriti moramo
+    \[
+        f \in C_b(X) \quad \text{in} \quad f_n \to f \text{ glede na $\norm{\cdot}_\infty$}
+    \]
+    Velja
+    \[
+        \forall x \in X. \forall n,m \ge n_\varepsilon. \abs{f_n(x) - f_m(x)} < \varepsilon
+    \]
+    Sledi (ko gre $n \to \infty)$: 
+    \begin{equation}
+        \forall x \in X. \forall m \ge n_\varepsilon.~\in X.~\abs{f(x) - f_m(x)} \le \varepsilon-
+    \end{equation}
+    Torej je $f - f_m$ omejena in zato je tudi $f = (f - f_m) + f_m$ omejena.
+
+    Pokažimo, da je $f$ zvezna.
+    Izberimo $m \ge n_\varepsilon$. Dokažimo, da je $f$ zvezna 
+    v $x \in X$.
+    \begin{align*}
+        \abs{f(y)-f(x)} &= \abs{f(y)-f_m(y)+f_m(y)-f_m(x)+f_m(x)-f(x)} \\
+        &\le |f(y) - f_m(y)| + \abs{f_m(y) - f_m(x)} + \abs{f_m(x) - f(x)} \\
+        &\le \varepsilon + \abs{f_m(y) - f_m(x)} + \varepsilon    
+    \end{align*}
+    Ker je $f_m$ zvezna, obstaja odprta okolica $U$ za $x$, 
+    na kateri 
+    \[
+        \abs{f_m(y) - f_m(x)} < \varepsilon.
+    \]
+    Torej je $f$ zvezna. 
+
+    Za $m \ge n_\varepsilon$ v $\star$ % kvadratek na sliki
+    naredimo supremum po $x \in X$.
+    \[
+        \norm{f - f_m}_\infty \le \varepsilon
+    \]
+    Sledi, da $f_n \to f$ v $C_b(X)$ oziroma $C_b(X)$ 
+    je Banachov.
+
+    Dokazati moramo, da je norma submultiplikativna in 
+    $\norm{1}_\infty = 1$.
+    Velja
+    \[
+        \forall x \in X.~ \abs{f(x)g(x)} \le \norm{f}_\infty\norm{g}_\infty,
+    \]
+    torej
+    \[
+        \norm{fg} \le \norm{f} \cdot \norm{g}.
+    \]
+    Velja tudi
+    \[
+        \norm{1}_\infty = \sup_{x \in X} \abs{1(x)} = \sup_{x \in X} 1 = 1.
+    \]
+\end{primer}
+
+\begin{opomba}
+    V resnici Hausdorffovosti v zgornjem primeru ne potrebujemo. Včasih jo 
+    vseeno predpostavimo, sploh ko imamo opravka z lokalno kompaktnostjo, da 
+    ne pride do nesoglasij glede definicije.
+\end{opomba}
+
+\begin{posledica}
+    Če je $X$ kompakten Hausdorffov prostor, potem je $C(X)$ 
+    Banachova algebra.
+\end{posledica}
+
+\begin{proof}
+    Velja $C(X) = C_b(C)$.
+\end{proof}
+
+\begin{primer}
+    Prostor $X = \N$ opremimo z diskretno topologijo. Funkcije so 
+    v tem primeru kar zaporedja:
+    \begin{align*}
+        f \colon \N &\to \F, \\
+        f &\leftrightarrow (f(1), f(2), \dots).
+    \end{align*}
+    Podobno priredimo
+    \begin{align*}
+        C(\N) \leftrightarrow \F^{\N} \\
+        C_b(\N) \leftrightarrow l^\infty
+    \end{align*}
+    Tu je $l^\infty$ prostor omejenih zaporedij za normo
+    \[
+        \norm{(x_1, x_2, \dots)} = \sup_{x \in X}\abs{x_n}.
+    \] 
+\end{primer}
+
+\begin{trditev}
+    Naj bo $X$ normiran prostor in $Y$ podprostor v $X$. 
+    \begin{enumerate}
+        \item Če je $Y$ poln, je $Y$ zaprt v $X$.
+        \item Če je $X$ Banachov, potem je $Y$ Banachov
+        natanko tedaj, ko je zaprt.
+    \end{enumerate}
+\end{trditev}
+
+\begin{opomba}
+    Podprostore normiranega prostora $X$ vedno opremimo z normo 
+    definirano na $X$. Topologija je relativna.
+\end{opomba}
+
+\begin{proof}
+    (i): Naj bo $y \in \overline{Y}$. Dokažimo $y \in Y$. 
+    Obstaja $(y_n)_{n \in \N}$ v $Y$, da $y_n \to y$. Sledi, 
+    da je $(y_n)$ Cauchyjevo v $Y$. Ker je prostore poln,
+    konvergira proti $y'$ v $Y$. Zaradi enoličnosti limite,\footnote{To sledi iz Hausdorffovosti.}
+    sledi $y = y' \in Y$.
+
+    (ii): Naj bo $Y$ zaprt v $X$. Pokažimo, da je Banachov.
+    Naj bo $(y_n)$ Cauchyjevo v $Y$. Torej je Cauchyjevo 
+    v $X$. Torej konvergira proti $y \in X$, saj je $X$ 
+    poln. Ker je $Y$ zaprt, je $y \in Y$, torej 
+    $y_n \to y$ in $Y$.
+\end{proof}
+
+
+    Naj bo $X$ lokalno kompakten Hausdorffov prostor. Definiramo
+    \[
+        C_0(X) := \setb{f \in C(X)}{\forall \varepsilon > 0.~
+        \exists K^{\text{komp.}} \subseteq X.~\forall x 
+        \in X\setminus K.~\abs{f(x)} < \varepsilon}.
+    \]
+    Tedaj $f \in C_0(X)$ pomeni vse zvezne funkcije, ki 
+    gredo proti $0$ v ``neskončnosti''.
+
+\begin{primer}
+    Na realni premici se to prevede v
+    \[
+        f \in C_0(\R) \Leftrightarrow \lim_{\abs{x} \to \infty} \abs{f(x)}= 0.
+    \]
+    Pri naravnih številih, $C_0(\N)$, pa dobimo
+    \[
+        c_0 := \setb{(x_1,x_2, \dots)}{\lim_{n \to \infty} x_n = 0}
+    \]
+\end{primer}
+
+Dokažimo, da je $C_0(X)$ zaprt dvostranski ideal v $C_b(X)$.
+Dokažimo, da je $C_0(X)$ zaprt podprostor. 
+
+(i) Naj bosta $f,g \in C_0(X)$. Potem $f + g \in C_0(X)$ in velja
+\[
+    \forall \varepsilon > 0. \exists K_1, K_2~\text{kompaktna}.~
+    \abs{f(x)} < \varepsilon/2
+\]
+za $x \in X\setminus K_1$ in 
+\[
+    \abs{g(x)} < \frac{\varepsilon}{2}
+\]
+za $x \in X \setminus K_2$. Za $x \in X \setminus (K_1 \cup K_2)$ je
+\[
+    \abs{(f+g)(x)} \le \abs{f(x)} + \abs{g(x)} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+\]
+Pokazali smo $f + g \in X_0(X)$.
+
+Dokažimo $\lambda f \in C_0(X)$.
+\[
+    \forall \varepsilon > 0.~\exists K^{komp.}.~
+    \abs{f(x)} < \frac{\varepsilon}{\abs{\lambda} + 1}
+\]
+za vse $x \in X \setminus K$. Torej za $x \in X\setminus K$
+\[
+    \abs{\lambda f(x)} = \abs{\lambda}
+    \abs{f(x)} < \frac{\abs{\lambda}}{\abs{\lambda} + 1} \cdot \varepsilon
+    < \varepsilon,
+\]
+oziroma $\lambda f \in C_0(X)$.
+
+Dokažimo, da je $C_0(X)$ zaprt v $C_b(X)$.
+Naj bo $(f_n)_{n\in \N}$ v $C_0(X)$ in $f_n \to f$ v $C_b(X)$.
+Dokažimo $f \in C_0(X)$. Imamo
+\[
+    \forall \varepsilon > 0.~\exists n_\varepsilon.~\forall 
+    n \ge n_\varepsilon.~\norm{f-f_n}_\infty < \varepsilon.
+\]
+V posebnem torej
+\[
+    \norm{f - f_{n_\varepsilon}} < \varepsilon.
+\]
+Ker je $f_{n_\varepsilon} \in C_0(X)$, obstaja $K^{\text{komp.}} \subseteq X$, 
+da je 
+\[
+    \forall x \in X \setminus K.~\abs{f_{n_\varepsilon}(x)} < \varepsilon.
+\]
+Za $x \in X\setminus K$ velja
+\[
+    \abs{f(x)} \le \abs{f(x) - f_{n_\varepsilon}(x)} + \abs{f_{n_\varepsilon}} 
+    < \epsilon + \epsilon = 2 \epsilon.
+\]
+Torej $f \in C_0(X)$.
+
+Pripomnimp še zakaj je $C_0 \subseteq C_b(X)$. Torej zakaj je 
+$f \in C_0(X)$ vedno omejena. Po definiciji je izven nekega
+kompakta omejena. Na kompaktu pa je $f$ omejena zaradi zveznosti.
+
+Preostane še, da je $C_0(X)$ dvostranski ideal v $C_b(X)$.
+Ker je algebra $C_b(X)$ komutativna, preverimo, da je levi ideal. 
+Naj bo $f \in C_b(X)$ in $g \in C_0(X)$. Naj bo $\varepsilon > 0$.
+
+Ker je $g \in C_0(X)$, obstaja kompakt $K$ v $X$, da je 
+\[
+    \abs{g(x)} < \frac{\varepsilon}{\norm{f}_\infty + 1}
+\]
+za $x \in X \setminus K$. Torej za $x \in X \setminus K$ velja
+\[
+    \abs{f(x)g(x)} <  \abs{f(x)} \frac{\varepsilon}{\norm{f}_\infty + 1} 
+    \le \frac{\norm{f}_\infty}{\norm{f}_\infty + 1} \varepsilon < \varepsilon
+\]
+Sledi, da je $C_0(X)$ Banachova algebra, ki nima nujno enice, saj velja
+\[
+    C_0(X)~\text{ima enoto} \Leftrightarrow X~\text{je kompakt}.
+\]
+\begin{primer}
+    Prostor vseh zaporedij, ki konvergirajo proti $0$, $c_0$, je 
+    Banachov prostor oziroma celo Banachova algebra.
+\end{primer}
+
+\begin{opomba}
+    Prostor $l^p$, kjer $1 \le p < \infty$, definiramo kot
+    \[
+        l^p := \setb{(x_1, x_2, \dots)}{ \sum_{n=1}^{\infty} \abs{x}^p < \infty}.
+    \] 
+    Tega prostora ne dobimo iz zveznih funkcij. Dobimo ga iz 
+    teorije mere. Velja, da je 
+    $(l_p, \norm{\cdot}_\infty)$ je Banachov za 
+    \[
+        \norm{x}_p = \left(\sum_{n=1}^{\infty}\abs{x_n}^p\right)^{1/p}.
+    \]
+\end{opomba}
+
+\begin{primer}
+    Naj bo
+    \[
+        c = \setb{(x_1, x_2, \dots)}{\text{limita $x_n$ obstaja}}
+    \]
+    in $\norm{x}_\infty = \sup_{n \in \N} \abs{x_n}$. Sledi, da je
+    $(c, \norm{\cdot}_\infty)$ Banachov.
+
+    Definiramo še 
+    \[
+        c_{00} = \setb{(x_1, x_2, \dots)}{x_n = 0~\text{od nekod dalje}}.
+    \]
+    Velja $c_{00} \subseteq c_0 \subseteq c \subseteq l^\infty$ in 
+    $c_{00} \subseteq l^{p}$ za $1 \le p < \infty$. Več o teh 
+    prostorih smo povedali na vajah.
+\end{primer}
+
+\subsection{Napolnitve normiranih prostorov}
+
+Naj bo $X$ normiran prostor. Ali obstaja Banachov prostor 
+$\hat X$, da je $X \subseteq \hat X$. Izkaže se, da ja,  
+$\hat X$ lahko celo izberemo tako, da bo $X$ gost v $\hat X$.
+
+\datum{2024-10-09}
