@@ -1,8 +1,9 @@
 Literature
 Literatura
 Weighted Finite Automata and Noncommutative Rational Series
+Uvod v funkcionalno analizo
 List of exercises
-Exercises
+Exercise classes
 
 *.aux
 *.log
@@ -15,3 +16,7 @@ Exercises
 *.out
 *synctex.gz
 *fdb_latexmk
+*.run.xml
+*.bbl
+*.bcf
+*.blg
