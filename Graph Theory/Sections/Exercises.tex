@@ -1,0 +1,68 @@
+\section{Exercises}
+\subsection*{Exercise sheet 1}
+\datum{2024-10-10}
+\begin{enumerate}
+    \item For each of the following graphs $G$, determine $\alpha(G)$, $\alpha'(G)$, $\beta(G)$, 
+    and $\beta'(G)$:
+    \begin{enumerate}
+        \item $G = P_n$
+        \item $G = C_n$
+    \end{enumerate}
+    
+    \item Prove that $\frac{\beta(G)}{2} \leq \alpha'(G) \leq \beta(G)$ for any graph $G$.
+    
+    \item (From lectures) Let $G$ be a bipartite graph with bipartition $\{A, B\}$. The deficiency 
+    of the subset $U \subseteq A$ is defined as:
+    \[
+    \defi_G(U) := \abs{U} - \abs{N_G(U)},
+    \]
+    and the deficiency of $G$ is defined as:
+    \[
+    \defi(G) := \max_{U \subseteq A} \defi_G(U).
+    \]
+    Prove that $\alpha'(G) = \abs{A} - \defi(G)$.
+    
+    \item Let $F = \set{F_1, \dots, F_n}$ be a family of subsets of a set $Y$. 
+    Prove there are distinct elements $a_1, \dots, a_n$ such that $a_i \in F_i$ if and only if 
+    $\abs{F} \leq \abs{\cup_{S \in F} S}$ for all $F \subseteq S$. 
+    (Such a set is called a system of distinct representatives for $F$.)
+    
+    \item (Extra) Let $\Gamma$ be a finite group and $H \leq \Gamma$ with index $n$. 
+    Let $L = \set{L_i}_{i=1}^n$ be the left cosets of $H$ and $R = \set{R_i}_{i=1}^n$ be the right cosets of $H$. 
+    Prove that there is a subset $\set{h_1, \dots, h_n} \subseteq G$ such that $L = \set{h_i H}_{i=1}^n$ and 
+    $R = \set{H h_i}_{i=1}^n$.
+\end{enumerate}
+
+\newpage
+\subsection*{Exercise sheet 2}
+\datum{2024-10-17}
+\begin{enumerate}
+    \item For each of the following graphs $G$, determine the number of maximum matchings:
+    \begin{enumerate}
+        \item $G = K_n$
+        \item $G = K_{a,b}, a \leq b$
+    \end{enumerate}
+    
+    \item Let $G$ be a graph such that $\delta(G) \geq 1$, with maximal matching $M$ and minimal edge cover $C$. 
+    Prove the following equivalences:
+    \begin{enumerate}
+        \item $M$ is a maximum matching if and only if $M$ is contained in a minimum edge cover.
+        \item $C$ is a minimum edge cover if and only if $C$ contains a maximum matching.
+    \end{enumerate}
+    
+    \item Use deficiency (see sheet 1) to prove the König-Egerváry theorem. 
+    (Hint: find a matching and a vertex cover of the same size using a subset of maximum deficiency).
+    
+    \item (From lectures) Let $G$ be a bipartite graph with bipartition $\set{A, B}$ such that $\abs{A} = \abs{B}$. 
+    Prove that for $A$, Hall's condition holds if and only if Tutte's condition holds.
+    
+    \item (From lectures, the Berge-Tutte formula) Prove that a maximum matching in a graph $G$ 
+    leaves uncovered exactly:
+    \[
+    \max_{S \subseteq V(G)} \left(o(G \setminus S) - \abs{S}\right).
+    \]
+    In other words,
+    \[
+    \alpha'(G) = \frac{1}{2}\left(n - \max_{S \subseteq V(G)} \set{o(G \setminus S) - |S|}\right).
+    \]
+\end{enumerate}
