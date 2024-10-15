@@ -46,25 +46,25 @@ Let $G = (V, E)$ be a graph.
     \end{itemize}
 \end{lemma}
 
-\begin{proof}
-    TO DO
-\end{proof}
+%\begin{proof}
+%    TO DO
+%\end{proof}
 
 \begin{theorem}[Gallai]\index{Gallai's theorem}
     If $\delta(G) \ge 1$, then $\alpha'(G) + \beta'(G) = n(G)$.
 \end{theorem}
 
-\begin{proof}
-    TO DO
-\end{proof}
+%\begin{proof}
+%    TO DO
+%\end{proof}
 
 \begin{definition}
-    Let $M$ be a matching. A path is an \emph{$M$-alternating path}\index{$M$-alternating path}
+    Let $M$ be a matching. A path is an \emph{$M$-alternating path}\index{M@$M$-alternating path}
     if the edges along the path alternate between $M$ and $\overline{M} = E \setminus M$.
 \end{definition}
 
 \begin{definition}
-    An $M$-alternating path is called an \emph{$M$-augmenting path}\index{$M$-augmenting path}
+    An $M$-alternating path is called an \emph{$M$-augmenting path}\index{M@$M$-augmenting path}
     if both ends of the path are uncovered by $M$.
 \end{definition}
 
@@ -89,9 +89,9 @@ Let $G = (V, E)$ be a graph.
     \end{itemize}    
 \end{theorem}
 
-\begin{proof}
-    TO DO
-\end{proof}
+%\begin{proof}
+%    TO DO
+%\end{proof}
 
 \begin{remark}
     There also exist graphs with $\alpha'(G) = \beta(G)$ that are not bipartite.
@@ -114,9 +114,11 @@ Let $G = (V, E)$ be a graph.
     Let $G$ be a bipartite graph with partite classes $A$ and $B$. 
     \emph{Hall's condition}\index{Hall's condition} (HC) holds for $A$,
     if 
-    \[
+    \begin{equation}
         \forall S \subseteq A.~\abs{S} \le \abs{N(S)},
-    \]
+        \tag{HC}
+        \label{eq:HC}
+    \end{equation}
     where $N(S)$ is the neighbourhood of $S$.
 \end{definition}
 
@@ -125,9 +127,9 @@ Let $G = (V, E)$ be a graph.
     exists if and only if Hall's condition holds for $A$.
 \end{theorem}
 
-\begin{proof}
-    TO DO
-\end{proof}
+%\begin{proof}
+%    TO DO
+%\end{proof}
 
 \begin{definition}
     A matching $M$ is a \emph{perfect matching}\index{perfect matching} if 
@@ -153,14 +155,63 @@ Let $G = (V, E)$ be a graph.
     vertices of $A$ are covered.
 \end{theorem}
 
-\begin{proof}
-    Left as an exercise.
-\end{proof}
+%\begin{proof}
+%    Left as an exercise.
+%\end{proof}
 
 \begin{theorem}
     If $G$ is a regular bipartite graph, then $G$ has a perfect matching.
 \end{theorem}
 
-\begin{proof}
-    TO DO
-\end{proof}
+%\begin{proof}
+%    TO DO
+%\end{proof}
+
+\datum{2024-10-10}
+
+\begin{theorem}
+    Let $M$ be a matching in $G$. There exists an $M$-augmenting path in $G$ if and only of $M$ is not maximum.
+\end{theorem}
+
+%\begin{proof}
+%    TO DO
+%\end{proof}
+
+The \href{https://en.wikipedia.org/wiki/Blossom_algorithm}{Blossom algorithm} is a known algorithm in $O(n\sqrt{n})$ that finds $M$-augmenting paths
+(in polynomial time). It also provides a maximum matching, and it allows us to find $\alpha'(G)$ and $\beta'(G)$ in polynomial time.
+
+Let $o(G)$ be the number of odd components ($\abs{V(C)} \equiv 1 \pmod{2}$) in $G$.
+
+\begin{theorem}{Tutte}\index{Tutte's theorem}
+    A graph $G$ has a perfect matching if and only if 
+    \begin{equation}
+        \forall S\subseteq V(G).~\abs{S}\ge o(G \setminus S). 
+        \tag{TC}
+        \label{eq:TC}
+    \end{equation}
+\end{theorem}
+
+The condition \eqref{eq:TC} is called \emph{Tutte's condition}.\index{Tutte's condition}
+
+%\begin{proof}
+%    TO DO
+%\end{proof}
+
+\begin{remark}
+    In bipartite graphs \eqref{eq:TC} implies \eqref{eq:HC}.
+\end{remark}
+
+\begin{theorem}[Berge-Tutte formula]\index{Berge-Tutte formula}
+    A maximum matching in a graph $G$ leaves exactly
+    \[
+    \max_{S \subseteq V(G)} \left(o(G \setminus S) - \abs{S}\right).
+    \]
+    vertices uncovered. Equivalently,
+    \[
+    \alpha'(G) = \frac{1}{2}\left(n - \max_{S \subseteq V(G)} \set{o(G \setminus S) - |S|}\right).
+    \]
+\end{theorem}
+
+%\begin{proof}
+%    Left as an exercise.
+%\end{proof}
