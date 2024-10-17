@@ -215,3 +215,45 @@ The condition \eqref{eq:TC} is called \emph{Tutte's condition}.\index{Tutte's co
 %\begin{proof}
 %    Left as an exercise.
 %\end{proof}
+
+\subsection{Factors}
+
+\datum{2024-10-17}
+
+\begin{definition}
+    A \emph{factor}\index{factor} is a spanning subgraph (subgraph that contains all vertices).
+    A \emph{$k$-factor}\index{k@$k$-factor} is a $k$-regular spanning subgraph.
+\end{definition}
+
+\begin{theorem}[Petersen]
+    If $G$ is a cubic graph witha at most one bridge, then 
+    $G$ has a $1$-factor.    
+\end{theorem}
+
+%\begin{proof}
+%    TO DO
+%\end{proof}
+
+\begin{theorem}[Petersen]\index{Petersen's theorem}
+    If $G$ is a cubic graph and all cut edges lie on the 
+    same path then $G$ has a $1$-factor.
+\end{theorem}
+
+\begin{proof}
+    Omitted.
+\end{proof}
+
+\begin{example}
+    \href{https://mathworld.wolfram.com/PetersensTheorem.html}{This} 
+    is the smallest example of a cubic graph with no $1$-factor.
+\end{example}
+
+\begin{theorem}[Petersen]
+    Every bridgeless cubic graph decomposes into a $1$-factor 
+    and $2$-factor.
+\end{theorem}
+
+\begin{theorem}
+    If $G$ is a $k$-regular graph and $k$ is even, then $G$ has 
+    a $2$-factor.
+\end{theorem}

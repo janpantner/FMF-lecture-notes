@@ -1,0 +1,44 @@
+\section{Connectivity}
+\subsection[k-connectivity]{$k$-connectivity}
+
+\begin{definition}
+    The \emph{connectivity number}\index{connectivity number} 
+    $\kappa(G)$ is the minimum number of vertices in $S \subseteq 
+    V(G)$ such that $G - S$ is disconnected or contains only 
+    one vertex.
+\end{definition}
+
+\begin{remark}
+    The latter conditions handles the case of complete graphs.
+\end{remark}
+
+\begin{definition}
+    A graph $G$ is $k$-connected\index{k@$k$-connectivity} if $\kappa(G) \ge k$.
+\end{definition}
+
+Alternatively: $G$ is $k$-connected if the removal of at most $k-1$ vertices always
+results in a connected graph with at most two vertices.
+
+\begin{proposition}
+    \begin{enumerate}
+        \item $\kappa(G) \le \delta(G)$
+        \item $\kappa(G) \le \beta(G)$
+        \item $\kappa(G) \le n(G) - 2$
+    \end{enumerate}
+\end{proposition}
+
+%\begin{proof}
+%    % TO DO
+%\end{proof}
+
+\begin{theorem}
+    The minimum number of edges in a $k$-connected graph of 
+    order $n > k > 2$ is $\ceil{nk/2}$.
+\end{theorem}
+
+\begin{proof}
+    Using \emph{Harary graphs}\index{Harary graph} $H_{n,k}$.
+    % TO DO
+\end{proof}
+
+\datum{2024-10-24}
