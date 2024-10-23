@@ -1,0 +1,126 @@
+\section{Galoisova teorija}
+\subsection{Fundamentalni izrek Galoisove teorije}
+\datum{2024-10-16}
+
+% Manjkajo primeri.
+
+\begin{definicija}
+    Naj bo $K$ razširitev polja $F$. Grupo avtomorfizmov $K$, ki fiksirajo $F$ označimo z 
+    \[
+        \Aut(K/F) := \setb{\sigma \in \Aut(K)}{\forall \lambda \in F.~\sigma(\lambda) = \lambda}.
+    \]
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $H \le \Aut(K/F)$. \emph{Polje fiksnih točk} podgrupe $H$ definiramo kot
+    \[
+        K^H := \setb{x \in K}{\forall \sigma \in H.~\sigma(x)=x}.
+    \]
+\end{definicija}
+
+\begin{lema}
+    Naj bo polje $K$ razširitev polja $F$ s karakteristiko $0$.
+    Če je $\sigma \in \Aut(K/F)$ in $a \in K$ ničla $f(x) \in F[x]$, potem je 
+    $\sigma(a)$ ničla $f(x)$. 
+\end{lema}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{opomba}
+    Naj bo $K$ končna razširitev polja $F$ s karakteristiko $0$. Po izreku o 
+    primitivnem elementu je $K = F(a)$. Vsak avtomorfizmem je tako enolično 
+    določen z delovanjem v $a$. Naj bo $p(x)$ minimalni polinom $a$ nad $F$. 
+    Sledi, da vsak avtomorfizem, ki fiksira $F$, le permutira ničle $p(x)$, 
+    zato je takšnih avtomorfizmov kvečjemu $\deg(p(x))$. Po lemi (ref) % TO DO 
+    pa vemo, da jih je natanko $\det(p(x)) = [K:F]$.
+\end{opomba}
+
+\datum{2024-10-23}
+\begin{lema}
+    Naj bo $a \in K$ in naj bodo $a_1=a, a_2, \dots, a_m$ različni
+    elementi množice $\setb{\sigma(a)}{\sigma \in H}$. Potem je 
+    \[
+        p(x) = (x - a_1) (x - a_2) \cdots (x - a_m)
+    \]
+    minimalni polinom $a$ nad $K^H$.
+\end{lema}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{lema}
+    Velja $\abs{H} = [K : K^H]$ in $[K : F] = \abs{H} \cdot [K^H : F]$.
+\end{lema}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{izrek}
+    Naj bo $K$ končna razširitev polja $F$ s karakteristiko $0$. Naslednji pogoji 
+    so ekvivalentni:
+    \begin{enumerate}[(i)]
+        \item $\abs{\Aut(K/F)} = [K:F]$.
+        \item $K^{\Aut(K/F)} = F$.
+        \item Vsak nerazcepen polinom v $F[x]$ z ničlo v $K$, razpade v $K$.
+        \item $K$ je razpadno polje nekega nerazcepnega polinoma iz $F[x]$.
+        \item $K$ je razpadno polje nekega polinoma iz $F[x]$.
+    \end{enumerate}
+    \label{thm:1}
+\end{izrek}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{definicija}
+    Končna razširitev $K$ polja $F$ s karakteristiko $0$, se imenuje 
+    \emph{Galoisova razširitev}\index{Galoisova razširitev}, 
+    če ustreza vsem pogojem izreka \ref{thm:1}.
+    Tedaj $\Aut(K/F)$ označujemo z $\Gal(K/F)$.
+
+    Če je $K$ razpadno polje polinoma $f(x) \in F[x]$, potem $K$ imenujemo tudi 
+    \emph{Galoisova razširitev polinoma $f(x)$}.\index{Galoisova razširitev polinoma} 
+\end{definicija}
+
+\begin{opomba}
+    Splošneje te pojme vpeljemo za polja s poljubno karakteristiko. Galoisova
+    razširitev je normalna in separabilna razširitev.
+
+    Razširitev je \emph{normalna}\index{normalna razširitev}, če zadošča 
+    pogoju (iii) iz izreka \ref{thm:1}.
+
+    Razširitev $K/F$ je \emph{separabilna}\index{separabilna razširitev}, 
+    če je vsak nerazcepen polinom iz $F[x]$ \emph{separabilen}\index{separabilen polinom}, 
+    tj.~vse njegove ničle so enostavne.
+\end{opomba}
+
+\begin{izrek}[Fundamentalni izrek Galoisove teorije]
+    Naj bo $K$ Galoisova razširitev polja $F$ s karakteristiko $0$. S $\mathcal{F}$
+    označimo množico vseh vmesnih polj med $F$ in $K$, z $\mathcal{G}$ pa množico 
+    vseh podgrup grupe $G := \Gal(K/F)$.
+    \begin{enumerate}[(a)]
+        \item Preslikava
+        \begin{align*}
+            \alpha \colon \mathcal{B} &\to \mathcal{F}, \qquad \alpha(H) = K^H
+        \intertext{je bijektivna z inverzom}
+            \beta \colon \mathcal{F} &\to \mathcal{B}, \qquad \beta(L) = \Gal(K/L).
+        \end{align*}
+        \item Če $H$ pripada $L$ -- torej $H = \Gal(K/L)$ oziroma $L = K^H$ -- 
+        potem
+        \[
+            \abs{H} = [K : L] \quad \text{in} \quad [G : H] = [L : F].
+        \]
+        \item Če $H$ in $H'$ zaporedoma pripadata $L$ in $L'$, potem $H \subseteq H'$
+        natanko tedaj, kadar $L \supseteq L'$.
+        \item Če $H$ pripada $L$, potem je $H \triangle G$ natanko tedaj, kadar 
+        je $L$ Galoisova razširitev $F$. V tem primeru velja $G/H \cong \Gal(L/F)$.
+    \end{enumerate}
+\end{izrek}
+
+%\begin{proof}
+%    
+%\end{proof}
