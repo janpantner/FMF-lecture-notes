@@ -42,3 +42,68 @@ results in a connected graph with at most two vertices.
 \end{proof}
 
 \datum{2024-10-24}
+
+\begin{definition}
+    A set $F \subseteq E(G)$ is a \emph{disconnecting set}\index{disconnecting set}
+    if $E - F$ is disconnected
+\end{definition}
+
+\begin{definition}
+    Let $\emptyset \neq A \subsetneq V(G)$ and let $E(A, \overline{A})$ be 
+    the set oe edges between $A$ and $\overline{A}$. Then 
+    $E(A, \overline{A})$ is an \emph{edge cut}.\index{edge cut}
+\end{definition}
+
+Clearly, an edge cut is a disconnecting set. Similarly, 
+a minimal disconnecting set is an edge cut.
+
+\begin{definition}
+    The \emph{edge-connectivity numver} of $G$, 
+    $\kappa'(G)$ is the minimum number of edges in a 
+    disconnecting set.
+\end{definition}
+
+\begin{definition}
+    A graph is \emph{$k$-edge-connected}\index{k@$k$-edge-connected}
+    if the removal of less than $k$ edges always leaves a connected graph.
+\end{definition}
+
+Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
+
+\begin{theorem}
+    Let $G$ be a simple graph with $n(G) \ge 2$. Then 
+    $\kappa(G) \le \kappa'(G) \le \delta(G)$.
+\end{theorem}
+
+%\begin{proof}
+    % TO DO
+%\end{proof}
+
+\begin{corollary} Let $G$ be a graph.
+    \begin{itemize}
+        \item If $G$ is $k$-connected, then $G$ is 
+        $k$-edge-connected.
+        \item The minimum number of edges in a $k$-edge-connected
+        graph on $n > k \ge 2$ vertices is $\ceil{kn/2}$.
+    \end{itemize}
+\end{corollary}
+
+%\begin{proof}
+    % TO DO
+%\end{proof}
+
+\begin{theorem}[Whitney] 
+    A graph $G$ is $2$-connected if and only if for every 
+    pair of distinct vertices $u,v \in V(G)$ there 
+    exist two internally disjoint $u,v$-paths.
+\end{theorem}
+
+\begin{lemma}[Expansion]
+    If $G$ is a $k$-connected and we add a new vertex $v$ 
+    and $k$ incident edges to the graph, we obtain a 
+    $k$-connected graph.
+\end{lemma}
+
+%\begin{proof}
+    % TO DO
+%\end{proof}
