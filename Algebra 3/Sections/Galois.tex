@@ -158,3 +158,107 @@
 %\begin{proof}
 %    
 %\end{proof}
+
+\subsection{Rešljivost polinomskih enačb z radikali}
+\datum{2024-10-30}
+
+\begin{definicija}
+    Grupa $G$ je \emph{rešljiva}\index{rešljiva grupa}, če obstajajo take edinke 
+    \[
+        \set{1} = N_0 \le N_1 \le N_2 \le \dots \le N_m = G,
+    \]
+    da je $N_{i+1}/N_i$ Abelova grupa za $i = 0, \dots, m-1$.
+\end{definicija}
+
+Direktno iz definicije sledi, da enostavna nekomutativna
+grupa ne more biti rešljiva.
+
+\begin{primer}
+    Grupa $A_5$ ni rešljiva.
+\end{primer}
+
+\begin{izrek}[Feit-Thompson]
+    Vsaka grupa lihega reda je rešljiva.    
+\end{izrek}
+
+% Brez dokaz. Dokaz je zelo dolg (250 strani).
+
+\begin{trditev}
+    \begin{enumerate}
+        \item Podgrupa rešljive grupe je rešljiva.
+        \item Naj bo $N \triangleleft G$. Grupa $G$ 
+        je rešljiva natanko tedaj, kadar sta rešljivi 
+        $N$ in $G/N$.
+    \end{enumerate}
+\end{trditev}
+
+% Brez dokaza.
+
+\begin{primer}
+    Grupa $S_n$, kjer je $n \ge 5$, vsebuje $A_5$, torej ni rešljiva.
+\end{primer}
+
+\begin{lema}
+    Naj bo $F \subseteq \C$ polje in $a \in F$. Potem 
+    je Galoisova grupa polinoma $f(x) = x^n - 1$ rešljiva.
+\end{lema}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{definicija}
+    Naj bo $F$ polje. Polinom $f(x) \in F[x]$ je
+    \emph{rešljiv z radikali}\index{rešljivost z radikali}
+    nad $F$, če obstajajo taki elementi $a_1, \dots, a_m$
+    neke razširitve $F$, da:
+    \begin{itemize}
+        \item Polinom $f(x)$ razpade v $F(a_1, \dots, a_m)$
+        \item Obstajajo takšni $n_1, \dots, n_m \in \N$, da 
+        velja $a_1^{n_1} \in F$ in $a_i^{n_i} \in 
+        F(a_1, \dots, a_{i-1})$.
+    \end{itemize}
+\end{definicija}
+
+\begin{opomba}
+    Druga točka nam pove to, da imamo tudi korenjenje.
+\end{opomba}
+
+\begin{primer}
+    Naj bodo $a, b, c \in \C$ in $f(x) = ax^2 + bx + c$. 
+    Polinom $f(x)$ je rešljiv z radikali nad $F = Q(a, b, c)$.
+    Njegovi ničli sta
+    \[
+        \frac{-b \pm \sqrt{b^2-4ac}}{2a},
+    \]
+    torej ustreza $a_1 = \sqrt{b^2 - 4ac}$.
+
+    Podobno velja za polinome tretje in četrte stopnje.
+\end{primer}
+
+\begin{izrek}
+    Naj bo $F \subseteq \C$ in $f(x) \in F[x]$. Polinom
+    $f(x)$ je rešljiv z radikali nad $F$ natanko tedaj, 
+    kadar je Galoisova grupa $f(x)$ nad $F$ rešljiva. 
+\end{izrek}
+
+% Brez dokaza.
+
+\begin{lema}
+    Naj bo $p(x) \in \Q[x]$ nerazcepen polinom stopnje $5$ 
+    z natanko tremi realnimi ničlami. Potem $p(x)$ ni rešljiv
+    z radikali nad $\Q$.
+\end{lema}
+
+%\begin{proof}
+%    
+%\end{proof}
+
+\begin{izrek}
+    Obstajajo polinomi iz $\Q[x]$ stopnje $5$, ki niso 
+    rešljivi z radikali.
+\end{izrek}
+
+%\begin{proof}
+%    
+%\end{proof}
