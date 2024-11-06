@@ -87,7 +87,7 @@ je kolobar.
 \end{opomba}
 
 \begin{primer}
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item Vektorski prostor nad poljem $F$ je $F$-modul.
         \item Vsaka Abelova (aditivna) grupa je $\Z$-modul. Obratno, $\Z$-modul je 
         aditivna grupa.
@@ -99,3 +99,70 @@ je kolobar.
         množenje matrike s stolpcem.
     \end{enumerate}
 \end{primer}
+
+\subsection{Osnovni pojmi teorije modulov}
+\subsubsection*{Podmoduli}
+
+\begin{definicija}
+    Podmnožica $N$ $K$-modula $M$ je \emph{podmodul},\index{podmodul} če je za isti operaciji tudi sama $K$-modul.
+\end{definicija}
+
+Ekvivalentno
+\begin{align*}
+    &\forall a,b \in K.~\forall u,v \in N.~au + bv \in N
+    \intertext{oziroma}
+    &(\forall u,v \in N.~u+v \in N) \land (\forall a \in K. \forall t \in N.~at \in N).
+\end{align*}
+
+\begin{primer}
+    \begin{enumerate}[(1)]
+        \item Če je $K$ polje, so podmoduli podprostori.
+        \item Če je $K = \Z$, so podmoduli podgrupe.
+        \item Podmoduli $K$-modula $K$ so levi ideali.
+        \item Množici $\set{0}$ in $M$ sta vedno podmodula modula $M$.
+    \end{enumerate}
+\end{primer}
+
+\begin{trditev}
+    Če sta $N_1$ in $N_2$ podmodula, sta podmodula tudi
+    \[
+        N_1 + N_2 = \setb{v_1 + v_2}{v_i \in N_i}
+    \]
+    in $N_1 \cap N_2$.
+\end{trditev}
+
+% To je enostavno preveriti.
+
+\begin{definicija}
+    Modul $M \neq \set{0}$, ki nima drugih podmodulov poleg $\set{0}$ in $M$, se imenuje 
+    \emph{enostavni modul}.\index{enostavni modul}
+\end{definicija}
+
+\begin{primer}
+    \begin{enumerate}[(1)]
+        \item Če je $K$ polje, so enostavni moduli $1$-razsežni prostori.
+        \item Če je $K = \Z$, so enostavni moduli $\Z_p$, kjer je $p$ praštevilo.
+        \item Naj bo $K = M_n(F)$ in $M = F^n$. Naj bo $N \neq \set{0}$ podmodul $M$ in 
+        $x \in N$. Velja
+        \[
+            \forall y \in M.~\exists A \in K.~Ax = y.
+        \]
+        Torej ni pravega podmodula -- $M$ je enostaven $K$-modul.
+    \end{enumerate}
+\end{primer}
+
+\subsubsection*{Homomorfizmi modulov}
+
+%
+%
+
+\subsubsection*{Kolkobarji endomorfizmov in Schurova lema}
+
+\begin{lema}[Schur]
+    Če je $M$ enostaven $K$-modul, je $\End_K(M)$ obseg.
+\end{lema}
+
+\begin{proof}
+    Naj bo $\varphi \End_K(M)$. Upoštevamo, da sta $\ker \varphi$ in $\im \varphi$ podmodula 
+    enostavnega modula. Torej je $\varphi = 0$ ali pa je $\varphi$ bijektiven endomorfizem.
+\end{proof}
