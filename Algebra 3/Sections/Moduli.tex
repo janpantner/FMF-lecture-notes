@@ -1,0 +1,100 @@
+\section{Moduli}
+\subsection{Vložitev kolobarja v kolobar endomorfizmov}
+
+Naj bo $M$ aditivna grupa. Množica endomorfizmov $\End(M)$ skupaj z operacijama
+\begin{align*}
+    (\varphi + \psi)(v) &= \varphi(v) + \psi(v) \quad \text{in} \\
+    (\varphi \cdot \psi)(v) &= \varphi(\psi(v))
+\end{align*}
+je kolobar.
+
+\begin{izrek}
+    Vsak kolobar lahko vložimo v kolobar endomorfizmov neke aditivne grupe.
+    \label{thm:kolobar}
+\end{izrek}
+
+\begin{proof}
+    Naj bo $K$ kolobar in $\End(K)$ kolobar endomorfizmov aditivne grupe $(K, +)$. definiramo
+    \begin{align*}
+        \varphi &\colon K \to \End(K), \\
+        a &\mapsto l_a,
+    \end{align*}
+    kjer je $l_a$ levo množenje: $l_a(x) = ax$. Velja
+    \begin{align*}
+        \varphi(a+b) &= l_{a+b} = l_a + l_b = \varphi(a) + \varphi(b), \\
+        \varphi(a\cdot b) &= l_{a \cdot b} = l_a \circ l_b = \varphi(a) \cdot \varphi(b), \\
+        \varphi(1) &= l_1 = \id_K.
+    \end{align*}
+    Velja še
+    \[
+        \varphi(a) = 0 \Rightarrow l_a = 0 \Rightarrow l_a(1) = 0 \Rightarrow a = 0,
+    \]
+    torej je jedro trivialno in res imamo vložitev.
+\end{proof}
+
+\begin{izrek}
+    Vsako algebro lahko vložimo v algebro endomorfizmov $\End_F(V)$ za neki 
+    vektorski prostor $V$.
+\end{izrek}
+
+\begin{proof}
+    Dokaz je podoben dokazu izreka \ref{thm:kolobar}.
+\end{proof}
+
+\begin{posledica}
+    Vsako končnorazsežno algebro lahko vložimo v $\End_F(V) \cong M_n(F)$, kjer 
+    je $V$ $n$-dimenzionalni vektorski prostor nad $F$.
+\end{posledica}
+
+\begin{primer}
+    Naj bo $A$ $n$-razsežna realna algebra. Ali obstajata takšna $s, t \in A$, da velja 
+    $st - ts = 1$?
+
+    Po posledici je to ekvivalentno obstoju $S, T \in M_n(\R)$, kjer velja $ST - TS = I$.
+    To ni mogoče, saj velja
+    \[
+        0 = \tr(ST - TS) \neq \tr(I) = n.
+    \]
+\end{primer}
+
+\subsection{Definicija modula}
+
+\begin{definicija}
+    Naj bo $K$ kolobar. Množica $M$ skupaj z binarno operacijo seštevanja $+$ in zunanjo
+    binarno operacijo $K \times M \to M$, $(a, u) \mapsto au$ imenovano 
+    \emph{modulsko množenje}\index{modulsko množenje} (tudi skalarno množenje), 
+    se imenuje \emph{(levi) modul}\index{modul}\index{levi modul} nad $K$ ali \emph{$K$-modul}, če velja:
+    \begin{itemize}
+        \item $(M, +)$ je Abelova grupa,
+        \item $\forall a \in K.~\forall u, v \in M.~a(u+v)=au + av$,
+        \item $\forall a, b \in K.~\forall u \in M.~(a+b)u = au + bu$,
+        \item $\forall a, b \in K.~\forall u \in M.~(ab)u = a(bu)$,
+        \item $\forall u \in M.~1u = u$.
+    \end{itemize}   
+\end{definicija}
+
+\begin{opomba}
+    Analogno lahko definiramo tudi \emph{desni modul}.\index{desni modul}
+\end{opomba}
+
+\begin{opomba}
+    Če je $M$ $K$-modul, je $\varphi \colon K \to \End(M)$, $\varphi(a)(u) = au$, 
+    homomorfizem kolobarjev.
+
+    Obratno, če je $\varphi \colon K \to \End(M)$ homomorfizem kolobarjev, postane 
+    $M$ $K$-modul, če vpeljemo $au := \varphi(a)(u)$.
+\end{opomba}
+
+\begin{primer}
+    \begin{enumerate}
+        \item Vektorski prostor nad poljem $F$ je $F$-modul.
+        \item Vsaka Abelova (aditivna) grupa je $\Z$-modul. Obratno, $\Z$-modul je 
+        aditivna grupa.
+        \item Vsak kolobar $K$ je $K$-modul, če za modulsko množenje vzamemo običajno 
+        množenje v kolobarju.
+        \item Če je $I$ levi ideal $K$, ga lahko obravnavamo kot levi $K$-modul.
+        \item Če je $K$ podkolobar $K'$, je $K'$ $K$-modul.
+        \item Naj bo $K = M_n(F)$ in $M = F^n$. Potem je $M$ $K$-modul za običajno 
+        množenje matrike s stolpcem.
+    \end{enumerate}
+\end{primer}
