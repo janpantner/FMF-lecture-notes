@@ -92,13 +92,13 @@ Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
     % TO DO
 %\end{proof}
 
-\begin{theorem}[Whitney] 
+\begin{theorem}[Whitney]\index{Whitney's Theorem}
     A graph $G$ is $2$-connected if and only if for every 
     pair of distinct vertices $u,v \in V(G)$ there 
     exist two internally disjoint $u,v$-paths.
 \end{theorem}
 
-\begin{lemma}[Expansion]
+\begin{lemma}[Expansion]\index{Expansion Lemma}
     If $G$ is a $k$-connected and we add a new vertex $v$ 
     and $k$ incident edges to the graph, we obtain a 
     $k$-connected graph.
@@ -107,3 +107,22 @@ Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
 %\begin{proof}
     % TO DO
 %\end{proof}
+
+\datum{2024-11-07}
+
+\begin{theorem}
+    If $G$ is a graph with $n(G) \ge 3$, then the following statements are equivalent.
+    \begin{enumerate}[(a)]
+        \item $G$ is $2$-connected.
+        \item $G$ is connected and there is no cut-vertex.
+        \item For every pair of distinct vertices $u,v \in V(G)$ there 
+        exist two internally disjoint $u,v$-paths.
+        \item Every pair of distinct vertices lies on a common cycle.
+        \item Every pair of edges lies on a common cycle and $\gamma(G) \ge 1$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{lemma}[Subdivision]\index{Subdivision Lemma}
+    Let $G'$ be a graph obtained from $G$ by subdividing an edge. Then $G$ 
+    is $2$-connected if and only if $G'$ is $2$-connected
+\end{lemma}
