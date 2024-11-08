@@ -126,3 +126,14 @@ Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
     Let $G'$ be a graph obtained from $G$ by subdividing an edge. Then $G$ 
     is $2$-connected if and only if $G'$ is $2$-connected
 \end{lemma}
+
+\begin{definition}
+    In a graph $G$, a path $P$ is an \emph{open ear}\index{open ear} if all internal
+    vertices of $P$ are of degree $2$ and the end vertices are of degree at least $3$.
+\end{definition}
+
+\begin{definition}
+    An \emph{open ear decomposition} of $G'$ is a sequence $P_0, P_1, \dots, P_k$ such 
+    that $P_0$ is a cycle and for every $i \in [k]$ $P_i$ is an open ear in 
+    the graph $G_i = P_0 \cup P_1 \cup \cdots \cup P_i$ and $G_k = G$.
+\end{definition}
