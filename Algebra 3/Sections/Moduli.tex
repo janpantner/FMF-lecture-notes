@@ -153,10 +153,37 @@ Ekvivalentno
 
 \subsubsection*{Homomorfizmi modulov}
 
-%
-%
+\begin{definicija}
+    Naj bosta $M$ in $M'$ $K$-modula. Preslikava $\varphi \colon M \to M'$ je 
+    \emph{homomorfizem modulov},\index{homomorfizem modulov} če velja 
+    $\varphi(u+v) = \varphi(u) + \varphi(v)$ in $\varphi(au) = a \varphi(u)$.
+    Homomorfizme modulov imenujemo tudi \emph{linearne preslikave}\index{linearna preslikava}
+    oziroma $K$-linearne preslikave.\index{K@$K$-linearna preslikava}
+\end{definicija}
 
-\subsubsection*{Kolkobarji endomorfizmov in Schurova lema}
+Ekvivalentno mora veljati $\varphi(au + bv) = a\varphi(u) + b \varphi(v)$.
+
+Seveda velja, da je inverz izomorfizma izomorfizem in da je kompozitum homomorfizmov 
+homomorfizem. Na standarden način definiramo \emph{jedro} in \emph{sliko} homomorfizma.
+Jedro in slika sta podmodula.
+
+\begin{primer}
+    \begin{enumerate}
+        \item Če je $K$ polje, so homomorfizmi ``običajne'' linearne preslikave.
+        \item Če je $K = \Z$, so homomorfizmi aditivne preslikave -- homomorfizmi
+        aditivnih grup.
+        \item Naj bo $I$ levi ideal $K$. Naj bo $c \in I$. Preslikava $\varphi \colon I \to I$, 
+        $u \mapsto uc$, je homomorfizem.
+    \end{enumerate}
+\end{primer}
+
+\subsubsection*{Kolobarji endomorfizmov in Schurova lema}
+
+Naj bo $M$ $K$-modul. Potem je množica vseh endomorfizmov $M$, $\End_K(M)$, kolobar
+za običajno seštevanje in komponiranje kot množenje.
+
+Velja, da je $\varphi \in \End_K(M)$ bijektivna preslikavava natanko tedaj, kadar je avtomorfizem oziroma 
+natanko tedaj, kadar je $\varphi$ obrnljiv element $\End_K(M)$.
 
 \begin{lema}[Schur]
     Če je $M$ enostaven $K$-modul, je $\End_K(M)$ obseg.
