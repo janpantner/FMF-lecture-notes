@@ -128,7 +128,7 @@ Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
 \end{lemma}
 
 \begin{definition}
-    In a graph $G$, a path $P$ is an \emph{open ear}\index{open ear} if all internal
+    In a graph $G$, a path $P$ is an \emph{open ear}\index{open ear}\index{ear} if all internal
     vertices of $P$ are of degree $2$ and the end vertices are of degree at least $3$.
 \end{definition}
 
@@ -137,3 +137,26 @@ Equivalently, a graph $G$ is $k$-edge-connected if $k \le \kappa'(G)$.
     that $P_0$ is a cycle and for every $i \in [k]$ $P_i$ is an open ear in 
     the graph $G_i = P_0 \cup P_1 \cup \cdots \cup P_i$ and $G_k = G$.
 \end{definition}
+
+\begin{theorem}
+    A graph $G$ is $2$-connected if and only if it has an open ear decomposition.
+\end{theorem}
+
+\begin{proposition}
+    A graph $G$ is $2$-edge-connected if and only if it is connected and every edge of $G$ lies in a cycle.
+\end{proposition}
+
+\begin{definition}
+    A \emph{closed ear}\index{closed ear} in $G$ is such a cycle that only one vertex has degree at least $4$.
+\end{definition}
+
+\begin{definition}
+    A \emph{closed ear decomposition}\index{closed ear decomposition} of $G$ is $P_0, P_1, \dots, P_k$ such 
+    that $P_0$ is a cycle and for every $i \in [k]$ $P_i$ is an open/closed ear in the graph $G_i = P_0 \cup P_1 \cup \dots \cup P_k$.
+\end{definition}
+
+\begin{theorem}
+    A graph $G$ is $2$-edge-connected if and only if it has a closed ear decomposition.
+\end{theorem}
+
+%\datum{2024-11-14}
