@@ -193,3 +193,138 @@ natanko tedaj, kadar je $\varphi$ obrnljiv element $\End_K(M)$.
     Naj bo $\varphi \End_K(M)$. Upoštevamo, da sta $\ker \varphi$ in $\im \varphi$ podmodula 
     enostavnega modula. Torej je $\varphi = 0$ ali pa je $\varphi$ bijektiven endomorfizem.
 \end{proof}
+
+\subsubsection*{Kvocientni moduli}
+\datum{2024-11-13}
+
+\begin{definicija}
+    Naj bo $N$ podmodul $K$-modula $M$. Potem 
+    \[
+        M/N := \setb{u+N}{u \in M}
+    \]
+    postane $K$-modul, če vpeljemo
+    \begin{align*}
+        (u+N) + (v+n) = (u+v) + N, 
+        a(u + N) = au + N.
+    \end{align*}
+    Imenujemo ga \emph{kvocientni modul}.\index{kvocientni modul}
+\end{definicija}
+
+Preslikava $\Pi \colon M \to M/N$, $\Pi(u) = u + N$ je epimorfizem modulov. Imenujemo ga 
+\emph{kanonični epimorfizem}.\index{kanonični epimorfizem}
+
+Tudi za module velja izrek o izomorfizmu. 
+\begin{izrek}[o izomorfizmu]\index{izrek!o izomorfizmu}
+    Naj bo $\varphi \colon M \to M'$ homomorfizem modulov. Velja
+    \[
+        M/_{\ker\varphi} \cong \im \varphi.
+    \]
+\end{izrek}
+
+\begin{primer}
+    
+\end{primer}
+
+\subsubsection*{Direktne vsote modulov}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{primer}
+    
+\end{primer}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{trditev}
+    
+\end{trditev}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{primer}
+    
+\end{primer}
+
+
+\subsubsection*{Generatorji modulov}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{primer}
+    
+\end{primer}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{lema}
+    
+\end{lema}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{definicija}
+    
+\end{definicija}
+
+%%
+
+\subsection{Baze modulov in prosti moduli}
+
+\begin{definicija}
+    Podmnožica $B$ $K$-modula $M$ je \emph{linearno neodvisna},\index{linearna neodvisnost} če 
+    za vse različne elemente $e_1, \dots, e_s \in B$ in vse $a_1, \dots, a_s \in K$ velja
+    \[
+        a_1b_1 + \dots + a_sb_s = 0 \quad \Rightarrow \quad a_1 = \dots = a_s = 0.
+    \]
+\end{definicija}
+
+\begin{definicija}
+    Če je $B$ linearno neodvisna množica in generira modul $M$, ji rečemo \emph{baza}\index{baza}
+    modula $M$.
+\end{definicija}
+
+Če je $B$ baza, potem za vsak element $u \in M$ obstajajo taki elementi $e_1, \dots, e_s \in B$,
+da je $u = a_1e_1 + \dots a_se_s$ za neke (enolilno določene) $a_i \in K$.
+
+Poenostavljeno zapišemo $u = \sum_i a_i e_i$, kjer je $B = \set{e_i}_i$. Tu moramo razumeti, 
+da je le končno mnogo $a_i$-jev lahko različnih od $0$.
+
+\begin{primer}
+    Končna netrivialna aditivna grupa nima baze, saj nima nepraznih neodvisnih množic. Velja namreč
+    \[
+        ne = 0 \not\Rightarrow n = 0, 
+    \]
+    saj ima v končni grupi vsak element končen red.
+\end{primer}
+
+\begin{definicija}
+    Modul, ki ima bazo, se imenuje \emph{prosti modul}.\index{prosti modul}
+\end{definicija}
+
+\begin{primer}
+    
+\end{primer}
+
+\begin{definicija}
+    
+\end{definicija}
+
+\begin{primer}
+    
+\end{primer}
+
+\begin{opomba}
+    
+\end{opomba}
