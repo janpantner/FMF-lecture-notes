@@ -222,7 +222,18 @@ Tudi za module velja izrek o izomorfizmu.
 \end{izrek}
 
 \begin{primer}
-    
+    \begin{enumerate}
+        \item Če je $K$ polje, so kvocientni moduli kvocientni prostori.
+        \item Če je $K = \Z$, so kvocientni moduli kvocientne grupe.
+        \item Podmodul $K$-modula $K$ je levi ideal $I$. Množica 
+        \[
+            K/I = \setb{a \in I}{a \in K}
+        \]
+        je aditivna grupa $K/I$ z modulsko operacijo
+        \[
+            a(b+I) = ab + I.
+        \]
+    \end{enumerate}
 \end{primer}
 
 \subsubsection*{Direktne vsote modulov}
@@ -314,17 +325,58 @@ da je le končno mnogo $a_i$-jev lahko različnih od $0$.
 \end{definicija}
 
 \begin{primer}
-    
+    \begin{enumerate}
+        \item Naj bo $K$ kolobar. Potem je $K^s = K \oplus \dots \oplus K$ prost $K$-modul 
+        z bazo $\set{(1,0,\dots,0), (0, 1, 0, \dots, 0), (0,\dots,0,1)}$. 
+
+        Če je $M$ prost $K$-modul z bazo $\set{e_1, \dots, e_s}$, je $M \cong K^s$ 
+        (izomorfizem: $a_1e_1 + \dots + a_se_s \mapsto (a_1, \dots, a_s)$).
+
+        \item Naj bo $K$ kolobar. Potem je $K[X]$ prost $K$-modul z bazo $\set{1, x, x^2, \dots}$.
+    \end{enumerate}
 \end{primer}
 
 \begin{definicija}
-    
+    Prostemu $\Z$-modulu pravimo \emph{prosta Abelova grupa}.\index{prosta Abelova grupa}
 \end{definicija}
 
+\begin{opomba}
+    To ni isto kot prosta grupa.
+\end{opomba}
+
 \begin{primer}
-    
+    Primer proste Abelove grupe je $\Z^s$.
 \end{primer}
 
 \begin{opomba}
-    
+    Podmodul prostega modula ni nujno prost.
 \end{opomba}
+
+\begin{primer}
+    Modul $\Z_4$ je prost $\Z_4$-modul. Njegov podmodul $2\Z_4 = \set{0, 2}$ ni prost.
+\end{primer}
+
+\begin{opomba}
+    Če je $M$ prost modul in $N$ podmodul, tedaj $M/N$ ni nujno prost.
+\end{opomba}
+
+\begin{primer}
+    Modul $\Z$ je prost $\Z$-modul in $n\Z$ je prost podmodul. Modul $M/N = \Z_n$ pa ni prost 
+    $\Z$-modul.
+\end{primer}
+
+\begin{opomba}
+    Če ima prost modul bazo z $n$ elementi, ni nujno res, da je vsaka linearno neodvisna 
+    množica z $n$ elementi tudi baza.
+\end{opomba}
+
+\begin{primer}
+    Modul $\Z$ ima bazo $\set{-1}$, množica $\set{2}$ pa ni baza.
+\end{primer}
+
+\begin{opomba}
+    Obstajajo kolobarji $K$ (nujno nekomutativni), za katere velja $K^s \cong K^t$ tudi, če
+    $s \neq t$.
+\end{opomba}
+
+%\datum{2024-11-20}
