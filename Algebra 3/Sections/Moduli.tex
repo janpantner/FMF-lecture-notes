@@ -238,17 +238,30 @@ Tudi za module velja izrek o izomorfizmu.
 
 \subsubsection*{Direktne vsote modulov}
 
-\begin{definicija}
-    
-\end{definicija}
 
-\begin{primer}
-    
+Naj bodo $N_1, \dots, N_s$ $K$-moduli. Potem $N_1 \times \dots \times N_s$ 
+postane $K$-modul, če definiramo
+\begin{align*}
+    (u_1, \dots, u_s) + (v_1, \dots, v_s) &:= (u_1 + v_1, \dots, u_s + v_s), \\
+    a(u_1, \dots, u_s) &:= (au_1, \dots, au_s).
+\end{align*}
+Imenujemo ga \emph{zunanja direktna vsota}\index{zunanja direktna vsota} modulov 
+$N_1, \dots, N_s$. Oznaka $N_1 \oplus \dots \oplus N_s$.
+
+\begin{primer} % To številčenje je precej slabo.
+    \begin{enumerate}
+        \item Če je $K$ polje, je to direktna vsota vektorskih prostorov.
+        \item Če je $K = \Z$, je to direktna vsota aditivnih grup. 
+    \end{enumerate}
 \end{primer}
 
-\begin{definicija}
-    
-\end{definicija}
+Naj bodo $N_1, \dots, N_s$ podmoduli $K$-modula $M$. Če velja 
+\begin{enumerate}
+    \item $M = N_1 + \dots + N_s = \setb{n_1 + \dots + n_s}{n_i \in N_i}$ in
+    \item $N_i \cap (N_1 +  \dots + N_{i-1} + N_{i+1} + \dots + N_s) = \set{0}$ za 
+    $i \in \set{1, \dots, s}$.
+\end{enumerate}
+potem je $M$ \emph{notranja direktna vsota} podmulov $N_1, \dots, N_s$.
 
 \begin{trditev}
     
