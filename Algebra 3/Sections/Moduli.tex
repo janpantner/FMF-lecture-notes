@@ -264,17 +264,41 @@ Naj bodo $N_1, \dots, N_s$ podmoduli $K$-modula $M$. Če velja
 potem je $M$ \emph{notranja direktna vsota} podmulov $N_1, \dots, N_s$.
 
 \begin{trditev}
-    
+    Če je $M$ notranja direktna vsota $N_1, \dots, N_s$, je 
+    $M$ izomorfen zunanji direktni vsoti
+    \[
+        M \cong N_1 \oplus \dots \oplus N_s.
+    \] 
 \end{trditev}
 
+\begin{proof}
+    Izomorfizem je 
+    \[
+        v_1 + \dots + v_s \mapsto (v_1, \dots, v_s),
+    \]
+    kjer je $v_i \in N_i$.
+\end{proof}
+
+\begin{opomba}
+    Tudi notranjo direktno vsoto zato označujemo z 
+    $N_1 \oplus \dots \oplus N_s$.
+\end{opomba}
+
 \begin{definicija}
-    
+    Podmodul $N$ modula $M$ je \emph{direktni sumand},\index{direktni sumand}
+    če obstaja tak pomodul $N'$, da je $M = N \oplus N'$.
 \end{definicija}
 
 \begin{primer}
-    
+    \begin{enumerate}
+        \item Če je $K$ polje, so vsi podprostori direktni sumandi.
+        \item Naj bo $K = \Z$: $\Z$-modul $\Z$ nima pravih netrivialnih 
+        direktnih sumandov ($\Z_n$ jih včasih ima).
+        \item Naj bo $K$ komutativni kolobar. Izkaže se, da je podmodul $I$ 
+        od $K$ direktni sumand natanko tedaj, kadar je $I = eK$ za neki 
+        $e$, za katerega velja $e = e^2$. 
+    \end{enumerate}
 \end{primer}
-
 
 \subsubsection*{Generatorji modulov}
 
