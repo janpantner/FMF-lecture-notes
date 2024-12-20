@@ -58,3 +58,56 @@
     
     \item Prove Theorem \ref{thm:BTF} (Berge-Tutte formula).
 \end{enumerate}
+
+\newpage
+\section{Homework}
+
+\begin{enumerate}
+    \item Use König's Theorem to prove that every bipartite graph 
+    $G$ has a matching of size $e(G)/\Delta(G)$. 
+    Use this to show that any subgraph of $K_{n,n}$ with more 
+    than $(k - 1)n$ edges has a matching of size at least $k$.
+
+    \item Let $G$ be a graph with $\delta(G) \geq k$ and $n(G) 
+    \geq 2k$. Prove that $\alpha'(G) \geq k$ 
+    (Hint: you can use the Berge-Tutte formula).
+
+    \item Let $G$ be an $r$-connected graph of even order, 
+    and which contains no $K_{1,r+1}$ as an induced subgraph. 
+    Prove that $G$ has a 1-factor.
+
+    \item A trail in a graph $G$ is a list of vertices and 
+    edges $v_0, e_1, v_1, e_2, \ldots, e_{k-1}, v_k$ such 
+    that $e_i = v_{i-1}v_i$ and the edges $e_i$ are pairwise distinct.
+
+    Let $G$ be a graph with $n(G) \geq 3$. Prove the following 
+    are equivalent:
+    \begin{enumerate}
+        \item $G$ is 2-edge-connected.
+        \item Every edge appears in a cycle.
+        \item $G$ has a closed trail containing any specified 
+        pair of edges.
+        \item $G$ has a closed trail containing any specified 
+        pair of vertices.
+    \end{enumerate}
+
+    \item Let $G$ be a simple graph. Prove that 
+    $\chi(G) + \chi(G^c) \leq n(G) + 1$.
+
+    \item A graph $G$ with $\chi(G) = k$ is called colour-critical, 
+    or $k$-critical, if $\chi(H) < k$ for all proper subgraphs $H$ of $G$.
+
+    Prove the following:
+    \begin{enumerate}
+        \item Every $k$-chromatic graph has a $k$-critical subgraph.
+        \item A graph $G$ with no isolated vertices is colour-critical 
+        if and only if $\chi(G - e) < \chi(G)$ for all $e \in E(G)$.
+        \item Let $G$ and $H$ be $k$-critical graphs sharing exactly 
+        $1$ vertex $v$, and with edges $vu \in E(G)$, $vw \in E(H)$. 
+        Prove that $(G - uv) \cup (H - vw) \cup uw$ is $k$-critical.
+        \item For all $k \geq 3$, use (c) to obtain a $k$-critical 
+        graph other than $K_k$.
+        \item For $n \geq 4$, $n \neq 5$, construct a 4-critical 
+        graph with $n$ vertices.
+    \end{enumerate}
+\end{enumerate}
